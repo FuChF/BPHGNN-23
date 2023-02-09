@@ -90,43 +90,6 @@ eval_type = 'all'
 # file_name = r'data/amazon'
 # eval_type = 'all'
 
-# mat = loadmat(net_path)
-# 
-# try:
-#     train = mat['A']
-# except:
-#     try:
-#         train = mat['train']+mat['valid']+mat['test']
-#     except:
-#         try:
-#             train = mat['train_full']+mat['valid_full']+mat['test_full']
-#         except:
-#             try:
-#                 train = mat['edges']
-#             except:
-#                 train = np.vstack((mat['edge1'],mat['edge2']))
-# 
-# try:
-#     feature = mat['full_feature']
-# except:
-#     try:
-#         feature = mat['feature']
-#     except:
-#         try:
-#             feature = mat['features']
-#         except:
-#             feature = mat['node_feature']
-# 
-# feature = csc_matrix(feature) if type(feature) != csc_matrix else feature
-# 
-# if net_path == 'imdb_1_10.mat':
-#     A = train[0]
-# elif args.dataset == 'Aminer_10k_4class':
-#     A = [[mat['PAP'], mat['PCP'], mat['PTP'] ]]
-#     feature = mat['node_feature']
-#     feature = csc_matrix(feature) if type(feature) != csc_matrix else feature
-# else:
-#     A = train
 
 print('start')
 new_adj = torch.load(adj_path)
