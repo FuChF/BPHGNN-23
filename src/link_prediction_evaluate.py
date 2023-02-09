@@ -170,8 +170,8 @@ def predict_model(model, file_name, feature, A,encode,new_adj, eval_type, node_m
 
             pos_out = torch.diag(T1)
             neg_out = torch.diag(T2)
-            loss = -torch.mean(F.logsigmoid(pos_out) + F.logsigmoid(neg_out))
-            # loss = -torch.mean(F.logsigmoid(pos_out) + F.logsigmoid(neg_out))+ 0.01 * contrast(near_embeds, far_embeds)
+            # loss = -torch.mean(F.logsigmoid(pos_out) + F.logsigmoid(neg_out))
+            loss = -torch.mean(F.logsigmoid(pos_out) + F.logsigmoid(neg_out))+ 0.0001 * contrast(near_embeds, far_embeds)
             loss = loss.requires_grad_()
 
             opt.zero_grad()
