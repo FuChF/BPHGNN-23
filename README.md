@@ -10,14 +10,7 @@ Recent versions of the following packages for Python 3 are required:
 * scikit-learn==0.24.2
 * pandas==0.25.0
 
-## Datasets
-### Link
-* IMDB https://github.com/RuixZh/SR-RSC
-* Alibaba https://github.com/xuehansheng/DualHGCN
-* Alibaba-s https://github.com/xuehansheng/DualHGCN
-* DBLP https://www.dropbox.com/s/yh4grpeks87ugr2/DBLP_processed.zip?dl=0
-* Taobao https://tianchi.aliyun.com/competition/entrance/231719/information/
-* Douban https://github.com/7thsword/MFPR-Datasets
+
 
 ### Preprocess
 We compress the data set into a mat format file, which includes the following contents.
