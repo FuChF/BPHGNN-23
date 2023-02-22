@@ -224,11 +224,11 @@ def predict_model(model, file_name, feature, A,encode,new_adj, eval_type, node_m
                     test_prs.append(test_pr)
 
             print("{}\t{:.4f}\tweight_b:{}".format(iter_ + 1, loss.item(), model.weight_b))
-            print("train_auc:{:.4f}\ttrain_f1:{:.4f}\ttrain_pr:{:.4f}".format(np.mean(train_aucs), np.mean(train_f1s),
+            print("train_auc:{:.4f}\ttrain_pr:{:.4f}".format(np.mean(train_aucs),
                                                                               np.mean(train_prs)))
-            print("valid_auc:{:.4f}\tvalid_f1:{:.4f}\tvalid_pr:{:.4f}".format(np.mean(valid_aucs), np.mean(valid_f1s),
+            print("valid_auc:{:.4f}\t\tvalid_pr:{:.4f}".format(np.mean(valid_aucs),
                                                                               np.mean(valid_prs)))
-            print("test_auc:{:.4f}\ttest_f1:{:.4f}\ttest_pr:{:.4f}".format(np.mean(test_aucs), np.mean(test_f1s),
+            print("test_auc:{:.4f}\ttest_pr:{:.4f}".format(np.mean(test_aucs),
                                                                            np.mean(test_prs)))
             validaucs.append(np.mean(valid_aucs))
             validf1s.append(np.mean(valid_f1s))
@@ -243,4 +243,4 @@ def predict_model(model, file_name, feature, A,encode,new_adj, eval_type, node_m
     max_iter_f1s = validf1s.index(max(validf1s))
     max_iter_prs = validprs.index(max(validprs))
 
-    return aucs[max_iter_aucs], f1s[max_iter_f1s], prs[max_iter_prs]
+    return aucs[max_iter_aucs],  prs[max_iter_prs]
