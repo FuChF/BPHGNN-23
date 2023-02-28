@@ -86,7 +86,7 @@ encode_path=r'data/alibaba_small/alibaba_small_encode.pt'
 
 
 print('start')
-new_adj = torch.load(adj_path)
+# new_adj = torch.load(adj_path)
 mat = loadmat(net_path)
 encode=torch.load(encode_path)
 print('end')
