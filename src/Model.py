@@ -136,7 +136,7 @@ class MHGCN(nn.Module):
         # self.struct_weight=torch.nn.Parameter(torch.ones(3), requires_grad=True)
         # torch.nn.init.uniform_(self.struct_weight, a=0, b=0.1)
 
-    def forward(self, feature, A,encode,new_adj,use_relu=True):
+    def forward(self, feature, A,encode,use_relu=True):
 
         final_A = adj_matrix_weight_merge(A, self.weight_b)
         # final_A2 = adj_matrix_weight_merge(A, self.weight_b2)
