@@ -31,8 +31,8 @@ net_path = r'data/alibaba_small/alibaba_small.mat'
 savepath = r'data/alibaba_small'
 eval_name = r'alibaba_small'
 encode_path=r'data/alibaba_small/alibaba_small_encode.pt'
-adj_path=r'data/dblp_small/dblp_small_new_edge.pt'
-graph_path = r'data/small_alibaba_1_10/alibaba_multi.mat'
+# adj_path=r'data/dblp_small/dblp_small_new_edge.pt'
+# graph_path = r'data/small_alibaba_1_10/alibaba_multi.mat'
 file_name = r'data/alibaba_small'
 eval_type = 'all'
 
@@ -129,7 +129,7 @@ eval_type = 'all'
 #     A = train
 
 print('start')
-new_adj = torch.load(adj_path)
+# new_adj = torch.load(adj_path)
 mat = loadmat(net_path)
 encode=torch.load(encode_path)
 print('end')
@@ -193,7 +193,7 @@ adj, features, labels, idx_train, idx_val, idx_test = load_our_data(args.dataset
 model = get_model(args.model, features.size(1), labels.max().item()+1, A, args.hidden, args.out, args.dropout, False)
 
 starttime=time.time()
-ROC,  PR = predict_model(model, file_name, feature, A,encode,new_adj, eval_type, node_matching)
+ROC,  PR = predict_model(model, file_name, feature, A,encode, eval_type, node_matching)
 endtime=time.time()
 
 print('Test ROC: {:.10f},  PR: {:.10f}'.format(ROC,  PR))
