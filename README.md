@@ -11,6 +11,7 @@ Recent versions of the following packages for Python 3 are required:
 * pandas==0.25.0
 
 ## Datasets
+All of the datasets we use are publicly available datasets
 ### Link
 * IMDB https://github.com/RuixZh/SR-RSC
 * Alibaba https://github.com/xuehansheng/DualHGCN
