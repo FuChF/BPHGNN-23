@@ -43,7 +43,7 @@ Finally, you need to modify 'node_classfication_evaluate.py' and 'Utils.py' to l
 
 Execute the following command to run the node classification task:
 
-* `python python Node_Classification.py`
+* `python Node_Classfication.py`
 
 Execute the following command to run the link prediction task:
 
