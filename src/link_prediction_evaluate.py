@@ -115,7 +115,7 @@ def link_prediction_evaluate(model, true_edges, false_edges):
     return roc_auc_score(y_true, y_scores), f1_score(y_true, y_pred), auc(rs, ps)
 
 
-def predict_model(model, file_name, feature, A,encode,new_adj, eval_type, node_matching):
+def predict_model(model, file_name, feature, A,encode, eval_type, node_matching):
     """
     Link prediction training proces
     """
@@ -138,7 +138,7 @@ def predict_model(model, file_name, feature, A,encode,new_adj, eval_type, node_m
         for iter_ in range(100):
             model.to(device)
             opt = torch.optim.Adam(model.parameters(), lr=0.005, weight_decay=0.0005)
-            emb,near_embeds,far_embeds = model(feature, A,encode,new_adj)
+            emb,near_embeds,far_embeds = model(feature, A,encode)
 
             emb_true_first = []
             emb_true_second = []
@@ -178,7 +178,7 @@ def predict_model(model, file_name, feature, A,encode,new_adj, eval_type, node_m
             loss.backward()
             opt.step()
 
-            td,near_embeds,far_embeds = model(feature, A,encode,new_adj)
+            td,near_embeds,far_embeds = model(feature, A,encode)
             td=td.detach().numpy()
             final_model = {}
             try:
