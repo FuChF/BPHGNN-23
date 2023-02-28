@@ -38,8 +38,8 @@ net_path = r'data/alibaba_small/alibaba_small.mat'
 savepath = r'data/alibaba_small'
 eval_name = r'alibaba_small'
 encode_path=r'data/alibaba_small/alibaba_small_encode.pt'
-adj_path=r'data/dblp_small/dblp_small_new_edge.pt'
-graph_path = r'data/small_alibaba_1_10/alibaba_multi.mat'
+# adj_path=r'data/dblp_small/dblp_small_new_edge.pt'
+# graph_path = r'data/small_alibaba_1_10/alibaba_multi.mat'
 
 
 
@@ -155,7 +155,7 @@ def normarlize(H):
 
     return G
 
-new_adj=normarlize(new_adj)
+# new_adj=normarlize(new_adj)
 
 
 
@@ -163,6 +163,6 @@ adj, features, labels, idx_train, idx_val, idx_test = load_our_data(args.dataset
 
 model = get_model(args.model, features.size(1), labels.max().item()+1, A, args.hidden, args.out, args.dropout, False)
 
-f1_ma, f1_mi = node_classification_evaluate(model, feature, A,encode,new_adj, eval_name, file_type='mat', device=torch.device('cpu'))
+f1_ma, f1_mi = node_classification_evaluate(model, feature, A,encode, eval_name, file_type='mat', device=torch.device('cpu'))
 
 print('Test F1-ma: {:.10f}, F1-mi: {:.10f}'.format(f1_ma, f1_mi))
