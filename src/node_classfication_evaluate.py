@@ -70,10 +70,10 @@ def load_data(dataset, datasetfile_type):
     return labels, idx_train.astype(np.int32) - 1, idx_val.astype(np.int32) - 1, idx_test.astype(np.int32) - 1
 
 
-def node_classification_evaluate(model, feature, A,encode,new_adj, file_name, file_type, device, isTest=True):
+def node_classification_evaluate(model, feature, A,encode, file_name, file_type, device, isTest=True):
     """Node classification training process"""
 
-    embeds,near_embeds,far_embeds = model(feature, A,encode,new_adj)
+    embeds,near_embeds,far_embeds = model(feature, A,encode)
 
     labels, idx_train, idx_val, idx_test = load_data(file_name, file_type)
 
@@ -121,7 +121,7 @@ def node_classification_evaluate(model, feature, A,encode,new_adj, file_name, fi
 
         starttime = time.time()
         for iter_ in range(200):
-            embeds,near_embeds,far_embeds = model(feature, A,encode,new_adj)
+            embeds,near_embeds,far_embeds = model(feature, A,encode)
             # print(embeds)
             embeds = torch.FloatTensor(embeds[np.newaxis]).to(device)
             train_embs = embeds[0, idx_train]
