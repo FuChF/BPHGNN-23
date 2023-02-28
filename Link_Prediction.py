@@ -30,7 +30,7 @@ eval_name = r'alibaba_small'
 net_path = r'data/alibaba_small/alibaba_small.mat'
 savepath = r'data/alibaba_small'
 eval_name = r'alibaba_small'
-encode_path=r'data/alibaba_small/alibaba_small_encode.pt'
+encode_path=r'data/alibaba_small/alibaba_small_encode.txt'
 # adj_path=r'data/dblp_small/dblp_small_new_edge.pt'
 # graph_path = r'data/small_alibaba_1_10/alibaba_multi.mat'
 file_name = r'data/alibaba_small'
@@ -131,7 +131,8 @@ eval_type = 'all'
 print('start')
 # new_adj = torch.load(adj_path)
 mat = loadmat(net_path)
-encode=torch.load(encode_path)
+encode=np.loadtxt(encode_path)
+encode=torch.tensor(encode)
 print('end')
 try:
     train = mat['A']
