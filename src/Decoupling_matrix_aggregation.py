@@ -127,6 +127,6 @@ def construct_adj(encode, struct_weight):
     adjust_encode=torch.mm(encode.to(torch.float32),weight)
     # print(adjust_encode)
     struct_adj=torch.mm(adjust_encode,adjust_encode.t())
-    normal_struct_adj=normarlize(struct_adj)
+    normal_struct_adj=torch.nn.functional.softmax(struct_adj, dim=1)
     return normal_struct_adj
 
